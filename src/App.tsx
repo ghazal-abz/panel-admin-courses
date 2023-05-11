@@ -1,9 +1,14 @@
+// import Login from "./features/Identity/components/register";
+import {RouterProvider} from "react-router-dom"
+import router from "./router";
 
 function App() {
 
-  return (
-      <p>پلتفرم آموزش آنلاین</p>
-  )
+    return (
+        <RouterProvider router={router}>
+
+        </RouterProvider>
+    )
 }
 
 export default App
