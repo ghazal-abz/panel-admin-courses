@@ -35,11 +35,11 @@ const ChangeLanguage = () => {
                 <img src={language === 'fa' ? faFlag : usFlag} alt="English" />
             </a>
             <div ref={ref} className={`dropdown-menu dropdown-menu-end ${show ? 'show' : undefined}`}>
-                <a className="dropdown-item fw-bolder d-flex align-items-center gap-2">
+                <a className="dropdown-item fw-bolder d-flex align-items-center gap-2" onClick={() => changeLanguage('fa')}>
                     <img src={faFlag} width="20" />
                     <span className="align-middle ">{t("dropDown.persian")}</span>
                 </a>
-                <a className="dropdown-item fw-bolder d-flex align-items-center gap-2">
+                <a className="dropdown-item fw-bolder d-flex align-items-center gap-2" onClick={() => changeLanguage('en')}>
                     <img src={usFlag} width="20" />
                     <span className="align-middle">{t("dropDown.english")}</span>
                 </a>
