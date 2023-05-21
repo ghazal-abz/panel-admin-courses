@@ -1,11 +1,16 @@
 import { Outlet } from "react-router-dom";
+import ChangeLanguage from "../components/change-language";
+import {useState} from "react";
 
 
 const IdentityLayout = () => {
+    const [show, setShow] = useState(false);
+
     return (
         <>
             <div className="main d-flex justify-content-center w-100">
                 <nav className="navbar shadow-sm justify-content-start gap-3">
+                    <ChangeLanguage/>
                 </nav>
                 <main className="content d-flex p-0">
                     <div
