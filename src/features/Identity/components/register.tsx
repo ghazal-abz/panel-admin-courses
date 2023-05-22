@@ -17,6 +17,7 @@ const Register = () => {
     const submitForm = useSubmit();
 
     const onSubmit = (data) => {
+        console.log(data)
         const {confirmPassword, ...userData} = data;
         submitForm(userData, {method: 'post'});
     }

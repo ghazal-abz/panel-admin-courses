@@ -17,6 +17,12 @@ const appReducer = (state, action: IAction) => {
                 theme: action.payload
             }
         }
+        case 'TOGGLE_SIDEBAR': {
+            return {
+                ...state,
+                showSidebar: !state.showSidebar
+            }
+        }
 
     }
 }

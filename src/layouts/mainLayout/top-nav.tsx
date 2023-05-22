@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ChangeLanguage from "../../components/change-language";
 import ChangeTheme from "../../components/change-theme";
 import { useAppContext } from "../../contexts/app/app-context";
