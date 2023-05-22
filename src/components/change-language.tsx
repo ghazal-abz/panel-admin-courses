@@ -13,6 +13,10 @@ const ChangeLanguage = () => {
     const {t} = useTranslation();
 
     useEffect(() => {
+        setShow(false);
+    }, [language]);
+
+    useEffect(() => {
         const checkIfClickOutside = e => {
             if (show && ref.current && !ref.current.contains(e.target)) {
                 setShow(false);
