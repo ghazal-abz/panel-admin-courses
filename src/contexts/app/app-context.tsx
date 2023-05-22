@@ -26,6 +26,7 @@ const AppProvider =  ({children}: ContextAppProp) => {
         i18n.changeLanguage(state.language);
         localStorage.setItem('language', state.language);
         document.body.dataset.direction = state.language === 'fa' ? 'rtl' : 'ltr';
+        document.body.dataset.sidebarPosition = state.language === 'fa' ? 'right' : 'left';
 
     },[state.language])
 

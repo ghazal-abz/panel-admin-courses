@@ -97,8 +97,8 @@ const Login = () => {
                             </div>
                             {routeErrors && (
                                 <div className="alert alert-danger text-danger p-2 mt-3">
-                                    {routeErrors.response?.data.map((error) => (
-                                        <p className="mb-0">
+                                    {routeErrors.response?.data.map((error, i) => (
+                                        <p className="mb-0" key={i}>
                                             {t(`login.validation.${error.code}`)}
                                         </p>
                                     ))}
