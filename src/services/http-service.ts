@@ -23,4 +23,4 @@ httpInterceptedService.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-export { httpService };
+export { httpService, httpInterceptedService };
