@@ -35,7 +35,7 @@ const Sidebar = () => {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                stroke-linecap="round"
+                strokeLinecap="round"
                 stroke-linejoin="round"
                 className="feather feather-video align-middle me-2"
               >
@@ -63,7 +63,7 @@ const Sidebar = () => {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                stroke-linecap="round"
+                strokeLinecap="round"
                 stroke-linejoin="round"
                 className="feather feather-video align-middle me-2"
               >
@@ -86,7 +86,7 @@ const Sidebar = () => {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                stroke-linecap="round"
+                strokeLinecap="round"
                 stroke-linejoin="round"
                 className="feather feather-percent align-middle me-2"
               >
@@ -113,7 +113,7 @@ const Sidebar = () => {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                stroke-linecap="round"
+                strokeLinecap="round"
                 stroke-linejoin="round"
                 className="feather feather-user align-middle me-2"
               >
@@ -136,7 +136,7 @@ const Sidebar = () => {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                stroke-linecap="round"
+                strokeLinecap="round"
                 stroke-linejoin="round"
                 className="feather feather-users align-middle me-2"
               >
@@ -164,7 +164,7 @@ const Sidebar = () => {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                stroke-linecap="round"
+                strokeLinecap="round"
                 stroke-linejoin="round"
                 className="feather feather-tag align-middle me-2"
               >
@@ -187,7 +187,7 @@ const Sidebar = () => {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                stroke-linecap="round"
+                strokeLinecap="round"
                 stroke-linejoin="round"
                 className="feather feather-file-text align-middle me-2"
               >
