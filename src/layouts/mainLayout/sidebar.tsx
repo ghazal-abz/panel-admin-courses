@@ -34,7 +34,7 @@ const Sidebar = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 className="feather feather-video align-middle me-2"
@@ -49,9 +49,12 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li className="sidebar-item">
-            <NavLink className={({ isActive }) =>
+            <NavLink
+              className={({ isActive }) =>
                 isActive ? "sidebar-link active" : "sidebar-link"
-              } to={"/course-categories"}>
+              }
+              to={"/course-categories"}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -59,7 +62,7 @@ const Sidebar = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 className="feather feather-video align-middle me-2"
@@ -82,7 +85,7 @@ const Sidebar = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 className="feather feather-percent align-middle me-2"
@@ -109,7 +112,7 @@ const Sidebar = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 className="feather feather-user align-middle me-2"
@@ -132,7 +135,7 @@ const Sidebar = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 className="feather feather-users align-middle me-2"
@@ -160,7 +163,7 @@ const Sidebar = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 className="feather feather-tag align-middle me-2"
@@ -183,7 +186,7 @@ const Sidebar = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 className="feather feather-file-text align-middle me-2"
