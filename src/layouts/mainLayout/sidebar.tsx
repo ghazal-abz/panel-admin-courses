@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import logo from "@assets/images/logo.svg";
 import { useAppContext } from "../../contexts/app/app-context";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const { t } = useTranslation();
