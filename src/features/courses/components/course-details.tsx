@@ -2,7 +2,23 @@ import { useLoaderData } from "react-router";
 import { httpInterceptedService } from "../../../services/http-service";
 
 const CourseDetails = () => {
-  const data = useLoaderData();
+  interface CourseData {
+    id: number;
+    createdAt: string;
+    title: string;
+    duration: number;
+    courseCategory: string;
+    courseLevel: number;
+    description: string;
+    coverImageUrl: string;
+    numOfChapters: number;
+    numOfLectures: number;
+    averageReviewRating: number;
+    numOfReviews: number;
+    basePrice: number;
+  }
+
+  const data = useLoaderData() as CourseData;
   return (
     <>
       <div className="row">
@@ -101,7 +117,7 @@ const CourseDetails = () => {
   );
 };
 
-export async function courseDetailsLoader({ params }) {
+export async function courseDetailsLoader({ params }: Params) {
   const response = await httpInterceptedService.get(
     `/Course/by-id/${params.id}`
   );

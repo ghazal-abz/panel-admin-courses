@@ -1,40 +1,40 @@
 import Sidebar from "./sidebar";
 import TopNav from "./top-nav";
-import {useTranslation} from "react-i18next";
-import {Outlet, useNavigate} from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const MainLayout = () => {
-    const {t} = useTranslation();
-    const navigate = useNavigate();
-    const token = localStorage.getItem('token');
-    if (!token) {
-        return navigate('/login', {replace: true});
-    }
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return navigate("/login", { replace: true });
+  }
 
-    return (
-        <div className="wrapper" style={{minHeight: "100vh"}}>
-            <Sidebar />
-            <div className="main">
-                <TopNav />
-                <main className="content">
-                    <div className="container-fluid p-0">
-                        <Outlet />
-                    </div>
-                </main>
-                <footer className="footer">
-                    <div className="container-fluid">
-                        <div className="row">
-                            <div className="col-12">
-                                <p className="mb-0">
-                                    © 2023 - <a className="text-muted">{t("classbon")}</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+  return (
+    <div className="wrapper" style={{ minHeight: "100vh" }}>
+      <Sidebar />
+      <div className="main">
+        <TopNav />
+        <main className="content">
+          <div className="container-fluid p-0">
+            <Outlet />
+          </div>
+        </main>
+        <footer className="footer">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-12">
+                <p className="mb-0">
+                  © 2023 - <a className="text-muted">{t("classbon")}</a>
+                </p>
+              </div>
             </div>
-        </div>
-    );
+          </div>
+        </footer>
+      </div>
+    </div>
+  );
 };
 
 export default MainLayout;

@@ -1,6 +1,23 @@
 import { Link } from "react-router-dom";
+import { FC } from "react";
 
-const Course = ({
+interface courseProps {
+  id: number;
+  createdAt: string;
+  title: string;
+  duration: number;
+  courseCategory: string;
+  courseLevel: string;
+  description: string;
+  coverImageUrl: string;
+  numOfChapters: number;
+  numOfLectures: number;
+  averageReviewRating: number;
+  numOfReviews: number;
+  basePrice: number;
+}
+
+const Course: FC<courseProps> = ({
   id,
   title,
   coverImageUrl,

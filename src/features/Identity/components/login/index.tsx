@@ -11,6 +11,10 @@ import {
 import { httpService } from "@services/http-service";
 import { User } from "./type";
 
+interface RouteError {
+  code: string;
+}
+
 const Login = () => {
   const {
     register,
@@ -25,10 +29,11 @@ const Login = () => {
   const navigation = useNavigation();
   const isSubmitting = navigation.state !== "idle";
 
-  const routeErrors = useRouteError();
+  const routeErrors = useRouteError() as RouteError[] | undefined;
 
   const onSubmit = (data: User) => {
-    submitForm(data, { method: "post" });
+    const formData = { ...data };
+    submitForm(formData, { method: "post" });
   };
 
   return (
@@ -109,7 +114,7 @@ const Login = () => {
   );
 };
 
-export async function loginAction({ request }) {
+export async function loginAction({ request }: { request: Request }) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   const response = await httpService.post("/Users/login", data);
