@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router";
-import { httpInterceptedService } from "../../../services/http-service";
+import { httpInterceptedService } from "@services/http-service";
 
 const CourseDetails = () => {
   interface CourseData {
