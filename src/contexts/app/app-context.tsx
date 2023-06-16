@@ -1,52 +1,55 @@
-import {useContext, useEffect} from "react";
+import { useContext, useEffect } from "react";
 import { createContext, useReducer } from "react";
 import appReducer from "./app-reducer";
-import {ContextAppProp} from './app-context-prop';
-import {useTranslation} from "react-i18next";
+import { ContextAppProp } from "./app-context-prop";
+import { useTranslation } from "react-i18next";
 
-const AppContext = createContext();
+const AppContext = createContext({});
 const initialState = {
-    language: localStorage.getItem('language') || 'fa',
-    theme: localStorage.getItem('theme') || 'light',
-    howSidebar: true
+  language: localStorage.getItem("language") || "fa",
+  theme: localStorage.getItem("theme") || "light",
+  howSidebar: true,
 };
 
-const AppProvider =  ({children}: ContextAppProp) => {
-    const {i18n} = useTranslation();
-    const [state, dispatch] = useReducer(appReducer, initialState);
+const AppProvider = ({ children }: ContextAppProp) => {
+  const { i18n } = useTranslation();
+  const [state, dispatch] = useReducer(appReducer, initialState);
 
-    const changeLanguage = (language) => {
-        dispatch({type: 'CHANGE_LANGUAGE', payload: language});
-    }
+  const changeLanguage = (language: string) => {
+    dispatch({ type: "CHANGE_LANGUAGE", payload: language });
+  };
 
-    const changeTheme = (theme) => {
-        dispatch({type: 'CHANGE_THEME', payload: theme});
-    }
+  const changeTheme = (theme: string) => {
+    dispatch({ type: "CHANGE_THEME", payload: theme });
+  };
 
-    const toggleSidebar = () => {
-        dispatch({type: 'TOGGLE_SIDEBAR'});
-    }
+  const toggleSidebar = () => {
+    dispatch({ type: "TOGGLE_SIDEBAR" });
+  };
 
-    useEffect(() => {
-        i18n.changeLanguage(state.language);
-        localStorage.setItem('language', state.language);
-        document.body.dataset.direction = state.language === 'fa' ? 'rtl' : 'ltr';
-        document.body.dataset.sidebarPosition = state.language === 'fa' ? 'right' : 'left';
+  useEffect(() => {
+    i18n.changeLanguage(state.language);
+    localStorage.setItem("language", state.language);
+    document.body.dataset.direction = state.language === "fa" ? "rtl" : "ltr";
+    document.body.dataset.sidebarPosition =
+      state.language === "fa" ? "right" : "left";
+  }, [state.language]);
 
-    },[state.language])
+  useEffect(() => {
+    localStorage.setItem("theme", state.theme);
+  }, [state.theme]);
 
-    useEffect(() => {
-        localStorage.setItem('theme', state.theme);
-
-    },[state.theme])
-
-    return <AppContext.Provider value={{...state, changeLanguage, changeTheme, toggleSidebar}}>
-        {children}
+  return (
+    <AppContext.Provider
+      value={{ ...state, changeLanguage, changeTheme, toggleSidebar }}
+    >
+      {children}
     </AppContext.Provider>
-}
+  );
+};
 
 const useAppContext = () => {
-    return useContext(AppContext);
-}
+  return useContext(AppContext);
+};
 
-export {useAppContext, AppProvider}
+export { useAppContext, AppProvider };

@@ -2,6 +2,7 @@ import logo from "@assets/images/logo.svg";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { User } from "./type";
 import {
   Link,
   useActionData,
@@ -12,25 +13,34 @@ import {
 } from "react-router-dom";
 import { httpService } from "@services/http-service";
 
+interface RouteError {
+  code: string;
+}
+
 const Register = () => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm<User>();
   const { t } = useTranslation();
 
   const submitForm = useSubmit();
 
-  const onSubmit = (data) => {
-    const { confirmPassword, ...userData } = data;
-    submitForm(userData, { method: "post" });
+  // const onSubmit = (data) => {
+  //   const { confirmPassword, ...userData } = data;
+  //   submitForm(userData, { method: "post" });
+  // };
+  const onSubmit = (data: User) => {
+    const { ...formData } = data;
+    submitForm(formData, { method: "post" });
   };
   const navigation = useNavigation();
   const isSubmitting = navigation.state !== "idle";
 
-  const routeErrors = useRouteError();
+  const routeErrors = useRouteError() as RouteError[] | undefined;
+
   const isSuccessOperation = useActionData();
 
   const navigate = useNavigate();
@@ -146,7 +156,7 @@ const Register = () => {
                 <div className="alert alert-danger text-danger p-2 mt-3">
                   {routeErrors.response?.data.map((error, i) => (
                     <p className="mb-0" key={i}>
-                      {t(`register.validation.${error.code}`)}
+                      {t(`login.validation.${error.code}`)}
                     </p>
                   ))}
                 </div>
@@ -164,7 +174,7 @@ const Register = () => {
   );
 };
 
-export async function registerAction({ request }) {
+export async function registerAction({ request }: { request: Request }) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   const response = await httpService.post("/Users", data);

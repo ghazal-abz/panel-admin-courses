@@ -117,7 +117,11 @@ const CourseDetails = () => {
   );
 };
 
-export async function courseDetailsLoader({ params }: Params) {
+interface Params {
+  id: number;
+}
+
+export async function courseDetailsLoader(params: Params) {
   const response = await httpInterceptedService.get(
     `/Course/by-id/${params.id}`
   );
