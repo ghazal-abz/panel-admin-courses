@@ -7,7 +7,7 @@ import Spinner from "../../../components/spinner";
 const CategoryList = memo(
   ({ categories: { data, totalRecords }, deleteCategory }) => {
     const navigation = useNavigation();
-    // const { setCategory } = useCategoryContext();
+    // const {setCategory} = useCategoryContext();
     return (
       <>
         <div className="row">

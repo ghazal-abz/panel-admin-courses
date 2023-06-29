@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { useAppContext } from "../contexts/app/app-context";
+// import { useAppContext } from "../contexts/app/app-context";
 
 const Modal = ({ isOpen, close, title, body, children }) => {
   const modalWrapperRef = useRef();
