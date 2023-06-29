@@ -8,9 +8,9 @@ const TopNav = () => {
   const navigate = useNavigate();
 
   const logout = () => {
-    localStorage.removeItem('token');
-    navigate('/login');
-  }
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   return (
     <nav className="navbar navbar-expand navbar-light navbar-bg">
@@ -22,7 +22,12 @@ const TopNav = () => {
         <ChangeTheme />
       </div>
       <div className={`${language === "fa" ? "me-auto" : "ms-auto"}`}>
-      <button className="btn ms-2 btn-outline-danger fw-bolder" onClick={logout}>خارج شوید</button>
+        <button
+          className="btn ms-2 btn-outline-danger fw-bolder"
+          onClick={logout}
+        >
+          خارج شوید
+        </button>
       </div>
     </nav>
   );
