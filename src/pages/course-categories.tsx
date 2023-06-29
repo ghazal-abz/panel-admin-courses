@@ -1,5 +1,6 @@
 import CategoryList from "@features/categories/components/category-list";
 import { httpInterceptedService } from "@services/http-service";
+import Modal from "../components/modal";
 import { Suspense } from "react";
 import { Await, defer, useLoaderData } from "react-router-dom";
 
@@ -7,25 +8,49 @@ const CourseCategories = () => {
   const data = useLoaderData();
 
   return (
-    <div className="row">
-      <div className="col-12">
-        <div className="d-flex align-items-center justify-content-between mb-5">
-          <h3 className="mb-0">همه دوره ها</h3>
-          <a href="#" className="btn btn-primary fw-bolder  mt-n1">
-            <i className="fas fa-plus ms-2"></i>افزودن دسته جدید
-          </a>
+    <>
+      <div className="row">
+        <div className="col-12">
+          <div className="d-flex align-items-center justify-content-between mb-5">
+            <h3 className="mb-0">همه دوره ها</h3>
+            <a href="#" className="btn btn-primary fw-bolder  mt-n1">
+              <i className="fas fa-plus ms-2"></i>افزودن دسته جدید
+            </a>
+          </div>
+          <Suspense
+            fallback={<p className="text-info">در حال دریافت اطلاعات ...</p>}
+          >
+            <Await resolve={data.categories}>
+              {(loadedCategories) => (
+                <CategoryList categories={loadedCategories} />
+              )}
+            </Await>
+          </Suspense>
         </div>
-        <Suspense
-          fallback={<p className="text-info">در حال دریافت اطلاعات ...</p>}
-        >
-          <Await resolve={data.categories}>
-            {(loadedCategories) => (
-              <CategoryList categories={loadedCategories} />
-            )}
-          </Await>
-        </Suspense>
       </div>
-    </div>
+
+      <Modal
+        title="حذف"
+        body="آیا از حذف این دسته اطمینان دارید؟"
+        isOpen={showDeleteModal}
+        close={setShowDeleteModal}
+      >
+        <button
+          type="button"
+          className="btn btn-secondary fw-bolder"
+          onClick={() => setShowDeleteModal(false)}
+        >
+          انصراف
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary fw-bolder"
+          onClick={handleDeleteCategory}
+        >
+          حذف
+        </button>
+      </Modal>
+    </>
   );
 };
 
