@@ -2,12 +2,12 @@ import { memo } from "react";
 import { useNavigation } from "react-router";
 import Pagination from "../../../components/pagination";
 import Spinner from "../../../components/spinner";
-// import { useCategoryContext } from "../category-context";
+import { useCategoryContext } from "../category-context";
 
 const CategoryList = memo(
   ({ categories: { data, totalRecords }, deleteCategory }) => {
     const navigation = useNavigation();
-    // const {setCategory} = useCategoryContext();
+    const { setCategory } = useCategoryContext();
     return (
       <>
         <div className="row">
